@@ -1,0 +1,37 @@
+Sub 查找内容()
+'
+' 宏1 宏
+'
+'
+Dim s As String, a As String
+
+s = "(职业技能：)(*)(;)"
+With ActiveDocument.Content.Find
+    .Text = s
+    .MatchWildcards = True
+    If .Execute Then a = Replace(Replace(.Parent, "职业技能：", ""), ";", "")
+    
+    
+         Dim desc As Variant
+     Dim i As Integer
+     i = 0
+     MsgBox (a)
+     desc = Array("学习程度：熟悉 requests库 && re库 && beautysou && selenium下的webdiver测试 && 多线程下载", "CSS学习", "Position", "Salary")
+     
+     If a = "mysql" Then
+     MsgBox (desc(0))
+    ActiveDocument.Shapes.Range(Array("Text Box 6")).Select
+    Selection.TypeText Text:="哈哈啊啊撒啊"
+     End If
+     If a = "css" Then
+     MsgBox (desc(1))
+     End If
+
+    
+End With
+
+    
+End Sub
+
+
+
